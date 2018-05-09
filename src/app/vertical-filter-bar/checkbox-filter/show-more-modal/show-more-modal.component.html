@@ -1,0 +1,46 @@
+<!-- Modal -->
+<div class="modal fade" [id]="id" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <!-- Close button -->
+        <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <!-- Search input -->
+        <div class="inner-addon right-addon search-input float-right">
+          <i class="fas fa-search"></i>
+          <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search" (change)="$event.stopPropagation()">
+        </div>
+        <!-- Modal title -->
+        <h4 class="modal-title" id="exampleModalLongTitle">Filter by: {{title}}</h4>
+        <div class="clearfix"></div>
+        <!-- Filter options -->
+        <div class="filter-options">
+          <div class="row">
+            <ng-template ngFor let-filterItem [ngForOf]="options">
+              <div *ngIf="searchText === undefined || searchText.length === 0 || filterItem.toUpperCase().includes(searchText.toUpperCase())" class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                <div class="custom-control custom-checkbox ">
+                  <input 
+                  type="checkbox" 
+                  class="custom-control-input" 
+                  id="checkbox-{{id}}-{{filterItem}}" 
+                  [checked]="selectedOptions.indexOf(filterItem) != -1"
+                  #checkbox
+                  (change)="checkChanged(filterItem, $event, checkbox.checked)"
+                  >
+                  <label for="checkbox-{{id}}-{{filterItem}}" class="custom-control-label">{{ filterItem }}</label>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+        <!-- Buttons -->
+        <div class="float-right">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onApply()">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+
+<div *ngFor="let choice of filterChoices" class="filter-choice float-left">
+    <span class="filter-choice-title">{{choice.title}}: </span>
+    <a *ngFor="let value of choice.values" class="filter-choice-option" (click)="removeFilterChoice(choice, value)">
+        {{value}}
+        <i class="fas fa-times fa-sm"></i> 
+    </a>
+</div>
+<div class="clearfix"></div>
+
+<h4>Applied filters:</h4>
+<pre>
+{{filterResults | json}}
+</pre>
+<h5>Do something with it!</h5>

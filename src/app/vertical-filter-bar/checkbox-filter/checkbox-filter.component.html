@@ -1,0 +1,17 @@
+<div *ngFor="let filterItem of model.options | slice:0:model.showMoreAfter" class="custom-control custom-checkbox">
+  <input 
+  type="checkbox" 
+  class="custom-control-input" 
+  id="checkbox-{{model.identifier}}-{{filterItem}}" 
+  [checked]="model.filterValue.indexOf(filterItem) != -1"
+  #checkbox 
+  (change)="checkChanged(filterItem, $event, checkbox.checked)"
+  >
+  <label for="checkbox-{{model.identifier}}-{{filterItem}}" class="custom-control-label">{{ filterItem }}</label>
+</div>
+<div *ngIf="model.showMoreAfter !== undefined">
+  <a class="show-more-link" data-toggle="modal" href="#{{model.identifier}}-show-more-modal" (click)="showMoreModal.initModal(model.filterValue)"><i class="fas fa-plus-circle"></i> Show more</a>
+</div>
+<div *ngIf="model.showMoreAfter !== undefined">
+  <app-show-more-modal id="{{model.identifier}}-show-more-modal" [title]="model.title" [options]="model.options" (apply)="onApply($event)" ></app-show-more-modal>
+</div>

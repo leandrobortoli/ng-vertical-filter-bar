@@ -1,0 +1,29 @@
+.content {
+    min-height: 500px;
+}
+
+.filter-choice{
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    margin-right: 4px;
+    margin-top: 4px;
+    padding: 2px;
+}
+
+.filter-choice-title {
+    margin-left: 8px;
+}
+
+.filter-choice-option {
+    font-weight: 600;
+    margin-right: 8px;
+    color: #212529;
+}
+
+.filter-choice-option:hover {
+    cursor: pointer;
+}
+
+.filter-choice-option:hover>i {
+    color: blue;
+}

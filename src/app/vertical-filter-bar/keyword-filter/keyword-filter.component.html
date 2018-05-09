@@ -1,0 +1,11 @@
+<div class="inner-addon right-addon">
+<i class="fas fa-search"></i>
+<input 
+    type="text" 
+    placeholder="{{model.title}}"
+    [(ngModel)]="model.filterValue"
+    (keyup)="onKeyUp($event)"
+    (change)="onChange($event)"
+    class="form-control"
+>
+</div>

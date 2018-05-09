@@ -1,0 +1,20 @@
+<div class="vertical-filter-bar col">
+  <div *ngFor="let fbFilter of filters; let i = index">
+    <div class="form-group">
+      <!-- filter title -->
+      <h5 class="float-left">{{fbFilter.title}}</h5>
+      <!-- collapse filter link -->
+      <a id="{{fbFilter.identifier}}-minimize-button" class=" float-right minimize-button" data-toggle="collapse" href="#{{fbFilter.identifier}}-collapse">
+        <i [ngClass]="{'fa-minus': !filterCollapsed[i], 'fa-plus': filterCollapsed[i]}" class="fas fa-sm"></i>
+      </a>
+      <span class="clearfix"></span>
+      <!-- filter panel -->
+      <div #filterPanel id="{{fbFilter.identifier}}-collapse" class="collapse show">
+        <app-checkbox-filter [model]="fbFilter" (change)="onFilterChanged(fbFilter.identifier, $event)" *ngIf="fbFilter.getClassName() === 'CheckboxFilter'"></app-checkbox-filter>
+        <app-range-filter [model]="fbFilter" (change)="onFilterChanged(fbFilter.identifier, $event)" *ngIf="fbFilter.getClassName() === 'RangeFilter'"></app-range-filter>
+        <app-keyword-filter [model]="fbFilter" (change)="onFilterChanged(fbFilter.identifier, $event)" *ngIf="fbFilter.getClassName() === 'KeywordFilter'"></app-keyword-filter>
+      </div>
+    </div>
+    <hr *ngIf="i + 1 < filters.length">
+  </div>
+</div>

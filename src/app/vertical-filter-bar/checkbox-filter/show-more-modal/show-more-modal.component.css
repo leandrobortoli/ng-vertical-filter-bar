@@ -1,0 +1,31 @@
+.modal-dialog {
+    /*Centralize Dialog*/
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+.modal-content {
+    border-radius: 2px;
+    box-shadow: none;
+}
+
+.modal-body {
+    padding: 12px;
+}
+
+.close {
+    font-size: 30px;
+}
+
+.search-input {
+    margin-right: 20px;
+    width: 200px;
+}
+
+.filter-options {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 400px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}

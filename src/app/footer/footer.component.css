@@ -1,0 +1,12 @@
+p {
+    color: lightgray;
+    text-align: center;
+    font-weight: bold;
+}
+.container {
+    min-height: 50px;
+}
+
+.bg-dark {
+    min-height: 50px;
+}
