@@ -28,7 +28,7 @@ When a filter is changed, the filter results will be updated on the query params
 
 Currently, there are KeywordFilter, RangeFilter, and CheckboxFilter, but different kind of filters can be easily developed implementing the interfaces FBFilter and FBFilterComponent.
 
-Online Demo.
+[Online Demo](https://leandrobortoli.github.io/ng-vertical-filter-bar).
 
 ## Dependencies
 
